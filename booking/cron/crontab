@@ -1,0 +1,2 @@
+0 1 * * 1 cd /code && python manage.py init_redis_availability >> /var/log/cron.log 2>&1
+
