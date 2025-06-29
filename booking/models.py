@@ -7,7 +7,7 @@ from django.contrib.auth.models import AbstractUser
 
 class User(AbstractUser):
     is_admin = models.BooleanField(default=False)
-    dob = models.DateField("Date of Birth", null=True, blank=True)
+    dob = models.DateField("Date of Birth")
 
     class Meta:
         db_table = "auth_custom_user"
