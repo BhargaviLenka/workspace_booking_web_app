@@ -11,7 +11,8 @@ def seed_initial_data(apps, schema_editor):
 
     # Admin
     if not User.objects.filter(is_admin=False).exists():
-        User.objects.create(username='admin', email='admin@example.com', password=make_password('admin123'))
+        User.objects.create(username='admin', email='admin@example.com', password=make_password('admin123'),
+                            is_admin=True, dob="1999-01-01")
 
 
     # Regular users

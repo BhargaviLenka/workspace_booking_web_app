@@ -108,7 +108,9 @@ class RedisBookingService:
                 if available is None or int(available) < seat_needed:
                     raise Exception("No available room for the selected slot and type")
 
-                redis_client.decrby(key, seat_needed)
+                val = redis_client.decrby(key, seat_needed)
+                if val < 0:
+                    raise Exception("No available room for the selected slot and type")
 
                 booked_ids = Booking.objects.filter(
                     room__room_type=room_type,
